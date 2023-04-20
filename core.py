@@ -1,0 +1,148 @@
+#Baixar xarray
+
+#Logica interessante pra juntar os arquivos de Pandas:
+#O pandas le o arquivo excel q tem varias paginas, que se chama
+#pd.ExcelFile(). Nele entramos com o sheet que interessa para acessarmos a tabela de interesse.
+#Exemplo:
+#excel = pd.ExcelFile('C:\Users\uli\Documents\USP\entos\Macrofauna_Ubatuba_Disciplina_Bentos_2021.xlsx')
+#fauna = excel.parse(sheet_name=excel.sheet_names[0])
+#Criar variaveis especificas para cada tipo de dado tambem para poder criar apends especificos.
+
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+import xarray as xr
+#import xarray as xr
+
+#Todas essas bibliotecas servem pra pegar o dado
+import os
+import glob
+from os.path import basename
+from os.path import abspath
+from os.path import join
+
+#all_data_path pode receber valores como True, False, 'names', 'any'
+
+class funcoes_python:
+    def __init__(self):
+        self.x = np.array([0])
+        self.y = np.array([0])
+        self.vect = np.array([0])
+        self.data = []
+        self.data_path = []
+        self.data_type = 'txt'
+        self.all_data_path = True #se falso, deve especificar o arquivo
+        self.proxy_path = False #caso o arquivo esteja em outro diretorio
+        self.any_word = [] #qualquer seq de letras para busca de dados na pasta desejada
+        #Basta colocar como no exemplo:
+        # self.proxy_path = 'C:\\Users\\lucas\\dados_diferentes'
+        self.files = [] #Pode configurar direto pelo utlizador
+        self.data_path = self.search_data_path()
+        self.data = self.load_data_path()
+        #self.data_metadata = search_metadata()
+        #self.function = function()
+        #self.print_function()
+        #self.make_tables()
+        #self.save_pictures() #utilizar os.mkdir pra fazer as pastas
+        #self.save_tables()
+    
+    #Funcao utilizada caso queira procurar dados pelo nome do arquivo
+    def name_data_path(self):
+        if (self.files == []):
+            print('Insira os nome dos arquivos desejados no formato:')
+            print("Arquivo_1.tipo,Arquivo_2.tipo,Arquivo_3.tipo")
+            file_named = (input('\n'))
+            file_named = file_named.split(',')
+            self.files = file_named
+    
+    #instalar dados descompactados na pasta dados
+    #Funcao busca dados. Ela pode trabalhar de duas formas:
+    #1- Ela busca todos os dados do tipo self.data_type instalados dentro
+    #da pasta dados
+    #2- Ela busca as pastas pelo nome, utilizando a funcao name_data_path
+    def search_data_path(self):
+        path = os.getcwd()
+        path = join(path,'Data')
+        if self.proxy_path != False: #caso o dado nao esteja na pasta data
+            path = self.proxy_path
+        if self.all_data_path == True:
+            files_names = glob.glob(path+'/*.'+self.data_type)
+            print(path,files_names)
+            return(files_names)
+        elif (self.all_data_path == 'names'):
+            files_names = self.files
+            if self.files == []:
+                print("Utilize o comando name_data_path para nomear os arquivos desejados")
+            else:
+                for i in range(len(files_names)):
+                    files_names[i] = path+'\\'+files_names[i]
+                    print(path,files_names)
+                return(files_names)
+            return(files_names)
+        elif (self.all_data_path == 'any'):
+            self.data_path = []
+            files_names = []
+            if self.any_word == []:
+                self.any_word = input('Digite a sequencia de letras que deseja buscar \n')
+            all_names = glob.glob(path+'/*')
+            print('Todas as pastas sao:\n',all_names)
+            print('Sua pasta possui',len(all_names),'dados.')
+            for k in all_names:
+                if (self.any_word in k) == True:
+                    files_names.append(k)
+            print('As pastas selecionadas foram:',files_names)
+            self.data_path = files_names
+            return(files_names)
+        elif self.all_data_path == False:
+            return ([])
+
+    def load_data_path(self):
+        DATA = np.zeros(len(self.data_path)) # vai ser um vetor cheio de matrizes dentro
+        dat = np.array([0])
+        k = 0
+        for i in self.data_path:
+            if '.txt'   in i:
+                try:
+                    print('Arquivo encontrado')
+                    print(DATA)
+                    dat = pd.read_csv(i,delimiter = " ")
+                except:
+                    print('Arquivo não encontrado')
+                DATA = dat
+            elif '.csv' in i:
+                try:
+                    print('Arquivo encontrado')
+                    print(DATA)
+                    dat = pd.read_csv(i,delimiter = ",")
+                except:
+                    print('Arquivo não encontrado')
+                DATA = dat
+            elif '.xlsx' in i:
+                try:
+                    print('Arquivo encontrado')
+                    print(DATA)
+                    dat = pd.read_excel(i)
+                except:
+                    print('Arquivo não encontrado')
+                DATA = dat
+            elif '.mat' in i:
+                return()
+            elif '.bin' in i:
+                return()
+            elif '.nc'  in i:
+                return()
+            k += 1
+        self.data = DATA
+    
+    def save_files(self):
+        return()
+
+
+teste = funcoes_python()
+"""
+teste.all_data_path = 'any'
+teste.search_data_path()
+print(teste.data_path)
+print(len(teste.data_path))
+print(teste.data)
+"""
