@@ -1,0 +1,20 @@
+#------------------------------WIKI---------------------------------#
+
+#----------------------ATIVAR AMBIENTE VIRTUAL----------------------#
+
+-Entrar como admin no Windows Power Shell.
+-Get-ExecutionPolicy (Precisa estar unrestrict)
+-Para liberar bastar usar o comando:
+Set-ExecutionPolicy Unrestricted -Force
+
+#-------------------------------------------------------------------#
+
+
+#----------------------CONFIGURAÇÕES VS-CODE------------------------#
+
+-ATALHOS ESTÃO NO PDF! (keyboard-shortcuts-windows.pdf)
+-Ir em settings na parte inferior esquerda
+-na barra de pesquisa fazer:
+-Desativar Compac Folders
+
+#-------------------------------------------------------------------#
