@@ -46,4 +46,12 @@ source /home/datanastics/Documents/venv/venv/bin/activate
 .Python
 .Code Runner
 
-#-------------------------------------------------------------------#
+#----------------------CRIAÇÃO DE BRANCH------------------------#
+- Primeiro verifique as ISSUES
+- Crie a branch com um nome sugestivo que resolva uma ISSUE especifica
+- Caso não haja, crie uma ISSUE antes de criar a BRANCH.
+- isso faz varias pessoas poderem trabalhar no mesmo issue sem usar a mesma branch.
+
+
+
+
