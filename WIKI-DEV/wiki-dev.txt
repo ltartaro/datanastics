@@ -9,7 +9,24 @@ DENTRO DO VIRTUAL BOX: Novo -> Tipo (Linux) -Próximo->Finish
 BUG DA RESOLUÇÃO DA VM:
 
 
-#-------------------------------------------------------------------#
+#----------------------CRIAR AMBIENTE VIRTUAL---------------------#
+ -1 Primeiro utilize o comando:
+pip freeze
+Ele dará as versões; Com o seguinte comando você armazena em um txt
+chamado requirements.txt:
+pip freeze > requirements.txt
+
+ -2 atualize o pip install:
+pip install --upgrade pip
+ 
+ -3 crie o ambiente virtual
+python -m venv venv
+ 
+ -4 baixe as libs utilizando o arquivo de requirements
+pip install -r ./requirements.txt
+
+ -5 ative o ambiente virtual
+source /home/datanastics/Documents/venv/venv/bin/activate
 
 #----------------------ATIVAR AMBIENTE VIRTUAL----------------------#
 
