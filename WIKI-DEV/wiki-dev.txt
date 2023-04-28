@@ -1,11 +1,20 @@
 #------------------------------WIKI---------------------------------#
 
+#----------------------CRIAR MÁQUINA VIRTUAL----------------------#
+https://www.virtualbox.org/
+https://ubuntu.com/download/desktop
+
+DENTRO DO VIRTUAL BOX: Novo -> Tipo (Linux) -Próximo->Finish
+
+BUG DA RESOLUÇÃO DA VM:
+
+
+#-------------------------------------------------------------------#
+
 #----------------------ATIVAR AMBIENTE VIRTUAL----------------------#
 
--Entrar como admin no Windows Power Shell.
--Get-ExecutionPolicy (Precisa estar unrestrict)
--Para liberar bastar usar o comando:
-Set-ExecutionPolicy Unrestricted -Force
+-ATIVAÇÃO Digitar no VS: source venv/bin/activate 
+-DESATIVAÇÃO: deactive
 
 #-------------------------------------------------------------------#
 
@@ -16,5 +25,8 @@ Set-ExecutionPolicy Unrestricted -Force
 -Ir em settings na parte inferior esquerda
 -na barra de pesquisa fazer:
 -Desativar Compac Folders
+-Extensions boas:
+.Python
+.Code Runner
 
 #-------------------------------------------------------------------#
