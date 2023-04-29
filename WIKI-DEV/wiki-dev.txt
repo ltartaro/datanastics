@@ -4,6 +4,9 @@
 https://www.virtualbox.org/
 https://ubuntu.com/download/desktop
 
+VM para desenvolvedor datanastics: 
+https://drive.google.com/drive/folders/1Ip5SaCf2541cOwtJgRVPvxsB4ElMIsJC?usp=sharing
+
 DENTRO DO VIRTUAL BOX: Novo -> Tipo (Linux) -Próximo->Finish
 
 BUG DA RESOLUÇÃO DA VM:
