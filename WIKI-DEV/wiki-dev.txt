@@ -14,7 +14,11 @@ BUG DA RESOLUÇÃO DA VM:
 
 #----------------------CRIAR AMBIENTE VIRTUAL---------------------#
 Entre na pasta de desenvolvimento e execute o seguinte comando:
-conda env export > environment.yml
+conda env create -f environment.yml
+
+Para exportar as informacoes de um ambiente virtual em um arquivo yml
+replicavel, basta executar:
+conda env export > environment_name.yml
 
  -1 Primeiro utilize o comando:
 pip freeze
