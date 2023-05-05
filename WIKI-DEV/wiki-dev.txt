@@ -13,6 +13,9 @@ BUG DA RESOLUÇÃO DA VM:
 
 
 #----------------------CRIAR AMBIENTE VIRTUAL---------------------#
+Entre na pasta de desenvolvimento e execute o seguinte comando:
+conda env export > environment.yml
+
  -1 Primeiro utilize o comando:
 pip freeze
 Ele dará as versões; Com o seguinte comando você armazena em um txt
